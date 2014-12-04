@@ -20,9 +20,6 @@ jimport('joomla.event.plugin');
 class plgFlexicontent_fieldsImage extends JPlugin
 {
 	static $field_types = array('image');
-	static $capabilities = array(
-		"canGroup" => true
-	);
 	
 	// ***********
 	// CONSTRUCTOR
