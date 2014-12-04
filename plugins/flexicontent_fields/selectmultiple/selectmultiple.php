@@ -20,6 +20,9 @@ class plgFlexicontent_fieldsSelectmultiple extends JPlugin
 {
 	static $field_types = array('selectmultiple');
 	static $extra_props = array();
+	static $capabilities = array(
+		"canGroup" => true
+	);
 	
 	// ***********
 	// CONSTRUCTOR
@@ -38,7 +41,7 @@ class plgFlexicontent_fieldsSelectmultiple extends JPlugin
 	// *******************************************
 	
 	// Method to create field's HTML display for item form
-	function onDisplayField(&$field, &$item)
+	function onDisplayField(&$field, &$item, $gcount=null)
 	{
 		// execute the code only if the field type match the plugin type
 		if ( !in_array($field->field_type, self::$field_types) ) return;
@@ -66,7 +69,8 @@ class plgFlexicontent_fieldsSelectmultiple extends JPlugin
 		if ($exact_values) $max_values = $min_values = $exact_values;
 		$js_popup_err	= $field->parameters->get( 'js_popup_err', 0 ) ;
 
-		// initialise property
+		
+		// Initialise property with default value
 		if (!$field->value && $default_values!=='') {
 			$field->value = explode(",", $default_values);
 		} else if (!$field->value) {
@@ -74,8 +78,9 @@ class plgFlexicontent_fieldsSelectmultiple extends JPlugin
 			$field->value[0] = '';
 		}
 		
-		$fieldname = FLEXI_J16GE ? 'custom['.$field->name.'][]' : $field->name.'[]';
-		$elementid = FLEXI_J16GE ? 'custom_'.$field->name : $field->name;
+		// Field name and HTML TAG id
+		$fieldname = 'custom['.$field->name.']'.($gcount!=null ? '['.$gcount.']': '').'[]';
+		$elementid = 'custom_'.$field->name.($gcount!=null ? '_'.$gcount: '');
 		
 		// Get indexed element values
 		$elements = FlexicontentFields::indexedField_getElements($field, $item, self::$extra_props);
