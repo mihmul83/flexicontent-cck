@@ -55,7 +55,7 @@ class plgFlexicontent_fieldsImage extends JPlugin
 		static $common_js_css_added = false;
 		
 		// some parameter shortcuts
-		$multiple   = $use_ingroup || $field->parameters->get('allow_multiple', 1);
+		$multiple   = $use_ingroup || $field->parameters->get('allow_multiple', 0);
 		$max_values = $use_ingroup ? 0 : (int)$field->parameters->get('max_values', 0);
 		$required   = $use_ingroup ? 0 : $field->parameters->get( 'required', 0 ) ;
 		$required   = $required ? ' required' : '';
@@ -749,7 +749,7 @@ class plgFlexicontent_fieldsImage extends JPlugin
 		$values = $values ? $values : $field->value;
 		$view   = JRequest::getVar('flexi_callview', JRequest::getVar('view', FLEXI_ITEMVIEW));
 		
-		$multiple     = $field->parameters->get('allow_multiple', 1 ) ;
+		$multiple     = $field->parameters->get('allow_multiple', 0 ) ;
 		$image_source = $field->parameters->get('image_source', 0);
 		if ($image_source > 1) {
 			global $fc_folder_mode_err;
