@@ -129,14 +129,14 @@ class plgFlexicontent_fieldsFcpagenav extends JPlugin
 			if ($prev_id) {
 				$field->prev = $rows[$prev_id];
 				$field->prevtitle = $field->prev->title;
-				$field->prevurl = JRoute::_(FlexicontentHelperRoute::getItemRoute($field->prev->slug, $field->prev->categoryslug));
+				$field->prevurl = JRoute::_(FlexicontentHelperRoute::getItemRoute($field->prev->slug, $field->prev->categoryslug, 0, $field->prev));
 			}
 			
 			// next content item
 			if ($next_id) {
 				$field->next = $rows[$next_id];
 				$field->nexttitle = $field->next->title;
-				$field->nexturl = JRoute::_(FlexicontentHelperRoute::getItemRoute($field->next->slug, $field->next->categoryslug));
+				$field->nexturl = JRoute::_(FlexicontentHelperRoute::getItemRoute($field->next->slug, $field->next->categoryslug, 0, $field->next));
 			}
 		}
 		
