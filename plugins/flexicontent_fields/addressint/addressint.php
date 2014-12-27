@@ -41,7 +41,7 @@ class plgFlexicontent_fieldsAddressint extends FCField {
 		$params->required = $required;
 		$params->value = $value;
 		
-		$this->displayForm($params);
+		$this->displayField($params);
 		
 		static $js_added = false;
 		if (!$js_added) {
