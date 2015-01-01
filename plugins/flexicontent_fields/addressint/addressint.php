@@ -10,7 +10,6 @@ class plgFlexicontent_fieldsAddressint extends FCField {
 
 	function onDisplayField(&$field, &$item) {
 		// displays the field when editing content item
-		// execute the code only if the field type match the plugin type
 		$field->label = JText::_($field->label);
 		if ( !in_array($field->field_type, self::$field_types) ) return;
 		$this->setField($field);
@@ -105,7 +104,6 @@ class plgFlexicontent_fieldsAddressint extends FCField {
 	
 	function onBeforeSaveField( &$field, &$post, &$file, &$item )
 	{
-		// execute the code only if the field type match the plugin type
 		if ( !in_array($field->field_type, self::$field_types) ) return;
 		
 		// Check if field has posted data
@@ -119,7 +117,6 @@ class plgFlexicontent_fieldsAddressint extends FCField {
 	{
 		// displays the field in the frontend
 		
-		// execute the code only if the field type match the plugin type
 		$field->label = JText::_($field->label);
 		if ( !in_array($field->field_type, self::$field_types) ) return;
 		$this->setField($field);
