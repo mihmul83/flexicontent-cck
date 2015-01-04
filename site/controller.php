@@ -1024,11 +1024,13 @@ class FlexicontentController extends JControllerLegacy
 		// Get/Create the model
 		$model = $this->getModel($viewName);
 		
-		// Push the model into the view (as default)
+		// Push the model into the view (as default) and then display the view
+		// this way we avoid creating 2nd model when calling the parent's display task
 		$view->setModel($model, true);
-
-		// Display the view
+		$view->document = $document;
 		$view->display();
+		
+		//parent::display();
 	}
 	
 	/**
