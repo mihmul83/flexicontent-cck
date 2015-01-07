@@ -1280,7 +1280,7 @@ fieldset.flexiaccess legend, fieldset.adminform legend { font-weight:bold; font-
 	border: 1px solid #dddddd;
 	cursor: pointer;
 	margin: 0;
-	padding: 0.1em 0.4em 0.1em 0.2em;
+	/*padding: 0.1em 0.4em 0.1em 0.2em;*/
 }
 
 #flexicontent form textarea.invalid,
@@ -1354,17 +1354,6 @@ div.flexi_box_right {
 
 .fieldgrprow_cell:last {
 	padding-right: 0px;
-}
-
-div#cpanel div.icon { margin: 7px; text-align: center; }
-div#cpanel span, div.cpanel span { display: block; text-align: center; }
-div#cpanel img, div.cpanel img { margin: 0 auto; padding: 10px 0; }
-div#cpanel div.icon  a {
-	border: 1px solid lightgray;
-	border-radius: 8px;
-	display: block;
-	width: 108px;
-	height: 97px;
 }
 
 .fc_drag_handle_none, .fc_drag_handle {

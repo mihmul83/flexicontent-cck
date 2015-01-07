@@ -180,13 +180,6 @@ class FlexicontentViewFlexicontent extends JViewLegacy
 		else if (FLEXI_J16GE) $document->addStyleSheet(JURI::base().'components/com_flexicontent/assets/css/j25.css');
 		else                  $document->addStyleSheet(JURI::base().'components/com_flexicontent/assets/css/j15.css');
 		
-		$document->addStyleDeclaration('
-			.pane-sliders {
-				margin: -7px 0px 0px 0px !important;
-				position: relative;
-			}'
-		);
-		
 		$css =	'.install-ok { background: url(components/com_flexicontent/assets/images/accept.png) 0% 50% no-repeat transparent; padding:1px 0; width: 20px; height:16px; display:block; }
 				 .install-notok { background: url(components/com_flexicontent/assets/images/delete.png) 0% 50% no-repeat transparent; padding:1px 0; width: 20px; height:16px; display:block; float:left;}';		
 		$document->addStyleDeclaration($css);
@@ -338,10 +331,11 @@ class FlexicontentViewFlexicontent extends JViewLegacy
 	{
 		//initialise variables
 		$lang = JFactory::getLanguage();
+		$img_attribs = ' class="fc-board-btn-img"';
   		?>
 
-		<div style="float:<?php echo ($lang->isRTL()) ? 'right' : 'left'; ?>;">
-			<div class="icon">
+		<span class="fc-board-button" style="float:<?php echo ($lang->isRTL()) ? 'right' : 'left'; ?>;">
+			<span class="fc-board-button-inner">
 				<?php
 				if ($modal == 1) {
 					JHTML::_('behavior.modal');
@@ -351,18 +345,18 @@ class FlexicontentViewFlexicontent extends JViewLegacy
 				<?php
 				} else {
 				?>
-					<a href="<?php echo $link; ?>">
+					<a href="<?php echo $link; ?>" class="">
 				<?php
 				}
 
 					echo FLEXI_J16GE ?
-						JHTML::image('administrator/components/com_flexicontent/assets/images/'.$image, $text) :
-						JHTML::_('image.site', $image, '../administrator/components/com_flexicontent/assets/images/', NULL, NULL, $text) ;
+						JHTML::image('administrator/components/com_flexicontent/assets/images/'.$image, $text, $img_attribs) :
+						JHTML::_('image.site', $image, '../administrator/components/com_flexicontent/assets/images/', NULL, NULL, $text, $attribs);
 				?>
-					<span><?php echo $text; ?></span>
+					<span class="fc-board-btn-text"><?php echo $text; ?></span>
 				</a>
-			</div>
-		</div>
+			</span>
+		</span>
 		<?php
 	}
 	
