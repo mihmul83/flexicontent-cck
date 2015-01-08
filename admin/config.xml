@@ -1214,6 +1214,19 @@
 	</fieldset>
 	<fieldset name="backend_tabs_conf" label="FLEXI_BACKEND_TABS_CONF" description="" >
 	
+	<field name="" type="separator" default="FLEXI_DASH_BOARD" label="" level="level0" menu="hide" />
+			
+		<field name="dashboard_buttons_hide" type="fccheckbox" default="" display_useglobal="0" menu="hide" 
+			checkoptions="FLEXI_ITEMS,FLEXI_NEW_ITEM,FLEXI_CATEGORIES,FLEXI_NEW_CATEGORY,FLEXI_TYPES,FLEXI_ADD_TYPE,FLEXI_FIELDS,FLEXI_ADD_FIELD,FLEXI_TAGS,FLEXI_NEW_TAG,FLEXI_FILES,FLEXI_TEMPLATES,FLEXI_STATISTICS,FLEXI_USERS,FLEXI_ADD_USER,FLEXI_GROUPS,FLEXI_ADD_GROUP,FLEXI_IMPORT,FLEXI_INDEX,FLEXI_PLUGINS,FLEXI_COMMENTS"
+			checkvals="items,additem,cats,addcat,types,addtype,fields,addfield,tags,addtag,files,templates,stats,users,adduser,groups,addgroup,import,index,plugins,comments"
+			defaultvals=""
+			label="FLEXI_DASH_HIDE_BTNS" description="FLEXI_DASH_HIDE_BTNS_DESC" />
+		
+		<field name="dashboard_sliders_disable" type="fccheckbox" default="" display_useglobal="0" menu="hide" 
+			checkoptions="FLEXI_PENDING,FLEXI_REVISED,FLEXI_IN_PROGRESS,FLEXI_TO_WRITE,FLEXI_VERSION_CHECKING"
+			checkvals="pending,revised,inprogress,draft,version" defaultvals=""
+			label="FLEXI_DASH_DISABLE_SLIDERS" description="FLEXI_DASH_DISABLE_SLIDERS_DESC" />
+		
 		<field name="" type="separator" default="FLEXI_ITEMS_MANAGER_CONF" label="" level="level0" menu="hide" />
 			
 		<field name="" type="separator" default="FLEXI_PARAMETERS_BEHAVIOR" label="" level="level1" menu="hide" />
