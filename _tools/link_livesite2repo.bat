@@ -4,7 +4,7 @@
 :: *********
 
 :: Disable echoing of MS-DOS commands
-@ ECHO ON
+@ ECHO OFF
 
 :: Store original folder path
 SET original_folder=%CD%
@@ -181,6 +181,18 @@ FOR /D %%G in ("*") DO (
 		)
 	)
 	mklink %joomlasite_path%\language\en-GB\en-GB.%%G.ini  %repository_path%\modules\%%G\languages\en-GB.%%G.ini
+	
+	REM :: SYS module language file
+	IF EXIST  %joomlasite_path%\language\en-GB\en-GB.%%G.sys.ini_  (
+		IF EXIST  %joomlasite_path%\language\en-GB\en-GB.%%G.sys.ini  (del %joomlasite_path%\language\en-GB\en-GB.%%G.sys.ini)
+	) ELSE (
+		IF "%dobackup%"=="1" (
+			ren  %joomlasite_path%\language\en-GB\en-GB.%%G.sys.ini  en-GB.%%G.sys.ini_
+		) ELSE (
+			del %joomlasite_path%\language\en-GB\en-GB.%%G.sys.ini
+		)
+	)
+	mklink %joomlasite_path%\language\en-GB\en-GB.%%G.sys.ini  %repository_path%\modules\%%G\languages\en-GB.%%G.sys.ini
 )
 
 
@@ -214,6 +226,18 @@ FOR  %%i  IN  %PLG_TYPES%  DO (
 			)
 		)
 		mklink %joomlasite_path%\administrator\language\en-GB\en-GB.plg_%%i_%%G.ini  %repository_path%\plugins\%%i\%%G\en-GB.plg_%%i_%%G.ini
+		
+		REM :: SYS plugin language file
+		IF EXIST  %joomlasite_path%\administrator\language\en-GB\en-GB.plg_%%i_%%G.sys.ini_  (
+			IF EXIST  %joomlasite_path%\administrator\language\en-GB\en-GB.plg_%%i_%%G.sys.ini  (del %joomlasite_path%\administrator\language\en-GB\en-GB.plg_%%i_%%G.sys.ini)
+		) ELSE (
+			IF "%dobackup%"=="1" (
+				ren  %joomlasite_path%\administrator\language\en-GB\en-GB.plg_%%i_%%G.sys.ini  en-GB.plg_%%i_%%G.sys.ini_
+			) ELSE (
+				del  %joomlasite_path%\administrator\language\en-GB\en-GB.plg_%%i_%%G.sys.ini
+			)
+		)
+		mklink %joomlasite_path%\administrator\language\en-GB\en-GB.plg_%%i_%%G.sys.ini  %repository_path%\plugins\%%i\%%G\en-GB.plg_%%i_%%G.sys.ini
 	)
 )
 
